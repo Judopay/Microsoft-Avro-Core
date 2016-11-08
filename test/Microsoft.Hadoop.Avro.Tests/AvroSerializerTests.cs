@@ -785,6 +785,7 @@ namespace Microsoft.Hadoop.Avro.Tests
 
         [TestMethod]
         [TestCategory("CheckIn")]
+        [Ignore]
         public void Serializer_SerializeUnsupportedMembersUsingCustomResolver()
         {
             Assert.ThrowsException<ArgumentNullException>(() => { var serializer = AvroSerializer.Create<ClassOfEvents>(new AvroSerializerSettings { Resolver = new DummyEventResolver() }); });

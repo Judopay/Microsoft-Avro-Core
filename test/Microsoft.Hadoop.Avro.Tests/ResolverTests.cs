@@ -26,7 +26,7 @@ namespace Microsoft.Hadoop.Avro.Tests
         [TestCategory("CheckIn")]
         public void Resolver_GetSerializationInfoUsingDataContactResolverWithNullFieldInfo()
         {
-            Assert.ThrowsException<SerializationException>(() =>
+            Assert.ThrowsException<ArgumentNullException>(() =>
             {
                 var resolver = new AvroDataContractResolver();
                 resolver.ResolveMembers(null);

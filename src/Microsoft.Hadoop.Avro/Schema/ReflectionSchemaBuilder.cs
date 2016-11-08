@@ -431,7 +431,7 @@ namespace Microsoft.Hadoop.Avro.Schema
             {
                 var property = info.MemberInfo as PropertyInfo;
                 var field = info.MemberInfo as FieldInfo;
-
+                
                 Type memberType;
                 if (property != null)
                 {

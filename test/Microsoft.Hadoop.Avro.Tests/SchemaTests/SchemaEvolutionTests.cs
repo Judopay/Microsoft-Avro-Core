@@ -700,9 +700,9 @@ namespace Microsoft.Hadoop.Avro.Tests
              }";
 
             var serializer = AvroSerializer.CreateGeneric(WriterSchema);
-            var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
             Assert.ThrowsException<SerializationException>(() =>
             {
+                var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
                 using (var stream = new MemoryStream())
                 {
                     dynamic expected = new AvroRecord(serializer.WriterSchema);
@@ -755,9 +755,9 @@ namespace Microsoft.Hadoop.Avro.Tests
              }";
 
             var serializer = AvroSerializer.CreateGeneric(WriterSchema);
-            var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
             Assert.ThrowsException<SerializationException>(() =>
             {
+                var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
                 using (var stream = new MemoryStream())
                 {
                     dynamic expected = new AvroRecord(serializer.WriterSchema);
@@ -808,9 +808,9 @@ namespace Microsoft.Hadoop.Avro.Tests
              }";
 
             var serializer = AvroSerializer.CreateGeneric(WriterSchema);
-            var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
             Assert.ThrowsException<SerializationException>(() =>
             {
+                var deserializer = AvroSerializer.CreateGenericDeserializerOnly(WriterSchema, ReaderSchema);
                 using (var stream = new MemoryStream())
                 {
                     dynamic expected = new AvroRecord(serializer.WriterSchema);
