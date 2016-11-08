@@ -1,12 +1,13 @@
 {
   "version": "1.1.1-*",
   "name":"Microsoft.Hadoop.Avro-Core",
+  "license" : "Apache-2.0" ,
   "dependencies": {
     "Newtonsoft.Json": "9.0.1",
     "protobuf-net": "2.1.0",
     "System.ComponentModel.TypeConverter": "4.1.0"
   },
-
+  "authors": ["Microsoft", "welly87"],
   "frameworks": {
     "netstandard1.6": {
       "dependencies": {
