@@ -14,7 +14,7 @@ build_script:
 after_build:
 - dotnet pack "src\Microsoft.Hadoop.Avro" -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o artifacts
 test_script:
-  - dotnet test "tests\Microsoft.Hadoop.Avro.Tests" -c %CONFIGURATION%
+  - dotnet test "test\Microsoft.Hadoop.Avro.Tests" -c %CONFIGURATION%
 artifacts:
 - path: artifacts\**\*.*
 deploy:
