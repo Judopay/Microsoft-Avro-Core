@@ -599,7 +599,20 @@ namespace Microsoft.Hadoop.Avro.Tests
         [TestCategory("CheckIn")]
         public void Skip_FixedWithNegativeSize()
         {
-            Assert.ThrowsException<Exception>(() => this.Decoder.SkipFixed(-1));
+            Assert.ThrowsException<Exception>(() => {
+                try 
+                {
+                    this.Decoder.SkipFixed(-1);
+                }
+                catch(IOException)
+                {
+                    throw new Exception();
+                }
+                catch(ArgumentOutOfRangeException)
+                {
+                    throw new Exception();
+                }
+            });
         }
 
         [TestMethod]
