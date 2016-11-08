@@ -1,6 +1,6 @@
 {
   "version": "1.1.1-*",
-
+  "name":"Microsoft.Hadoop.Avro-Core",
   "dependencies": {
     "Newtonsoft.Json": "9.0.1",
     "protobuf-net": "2.1.0",
