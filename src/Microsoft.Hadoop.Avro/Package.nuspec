@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Microsoft.Hadoop.Avro.Core</id>
+    <authors>Microsoft welly87</authors>
+    <owners>Judopay</owners>
+    <licenseUrl>https://raw.githubusercontent.com/WindowsAzure/azure-sdk-for-net/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/Judopay/Microsoft-Avro-Core</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dotnet Core port of Microsoft.Hadoop.Avro</description>
+    <tags>Avro</tags>
+  </metadata>
+</package>
