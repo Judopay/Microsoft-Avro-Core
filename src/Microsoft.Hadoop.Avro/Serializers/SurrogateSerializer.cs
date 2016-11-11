@@ -47,7 +47,11 @@ namespace Microsoft.Hadoop.Avro.Serializers
 
             Expression castValue = this.Schema.RuntimeType.IsValueType() ? Expression.Convert(value, typeof(object)) : value;
 
-            Expression obj = Expression.TypeAs(
+            Func<Expression, Type, Expression> convertExpr = this.Schema.SurrogateType.IsValueType() ?
+                (Func<Expression, Type, Expression>)((e,t) => Expression.Convert(e,t)) :
+                (Func<Expression, Type, Expression>)((e,t) => Expression.TypeAs(e,t));
+
+            Expression obj = convertExpr(
                 Expression.Call(surrogate, serialize, new[] { castValue, Expression.Constant(this.Schema.SurrogateType) }),
                 this.Schema.SurrogateType);
 
@@ -64,7 +68,11 @@ namespace Microsoft.Hadoop.Avro.Serializers
             var surrogate = Expression.Constant(this.settings.Surrogate);
             MethodInfo deserialize = typeof(IAvroSurrogate).GetMethod("GetDeserializedObject");
 
-            Expression deserialized = Expression.Call(surrogate, deserialize, new[] { obj, Expression.Constant(this.Schema.RuntimeType) });
+            Func<Expression, Expression> convertToObject = this.Schema.SurrogateType.IsValueType() ?
+                (Func<Expression, Expression>)(e => Expression.Convert(e,typeof(object))) :
+                (Func<Expression, Expression>)(e => Expression.TypeAs(e,typeof(object)));
+
+            Expression deserialized = Expression.Call(surrogate, deserialize, new[] { convertToObject(obj), Expression.Constant(this.Schema.RuntimeType) });
             return this.Schema.RuntimeType.IsValueType()
                 ? Expression.Convert(deserialized, this.Schema.RuntimeType)
                 : Expression.TypeAs(deserialized, this.Schema.RuntimeType);
