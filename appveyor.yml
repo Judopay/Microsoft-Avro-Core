@@ -43,7 +43,15 @@
 
   build:
     project: 'src\Microsoft.Hadoop.Avro\Microsoft.Hadoop.Avro.csproj'
-    publish_nuget: true
+
+  deploy:
+    provider: NuGet
+    server:                  # remove to push to NuGet.org
+    api_key:
+      secure: 7hCXGI9g/S/3iu00/OvfdiEJVLcQjSzpx6lB+5qsyvs6iLD6oFCQ8NzcRs7wg2bO
+    skip_symbols: false
+    symbol_server:           # remove to push symbols to SymbolSource.org
+    artifact: /.*\.nupkg/
 
 #------------------------------------------------------------#
 # Configuration for feature branches                         #
