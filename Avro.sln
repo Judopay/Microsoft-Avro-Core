@@ -1,14 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{334C7E86-497D-4A0B-B27F-61E124E7F5AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5EB9A75A-8CCC-4006-B748-9A3E76CC63D0}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.Hadoop.Avro", "src\Microsoft.Hadoop.Avro\Microsoft.Hadoop.Avro.xproj", "{6A106D5D-3246-483A-9F7C-8E3C81707DC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Hadoop.Avro", "src\Microsoft.Hadoop.Avro\Microsoft.Hadoop.Avro.csproj", "{6A106D5D-3246-483A-9F7C-8E3C81707DC1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.Hadoop.Avro.Tests", "test\Microsoft.Hadoop.Avro.Tests\Microsoft.Hadoop.Avro.Tests.xproj", "{72E60C72-EEE8-4505-8064-B86EB4DDADCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Hadoop.Avro.Tests", "test\Microsoft.Hadoop.Avro.Tests\Microsoft.Hadoop.Avro.Tests.csproj", "{72E60C72-EEE8-4505-8064-B86EB4DDADCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
