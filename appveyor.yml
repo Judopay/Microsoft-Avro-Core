@@ -43,6 +43,7 @@
 
   build:
     project: 'src\Microsoft.Hadoop.Avro\Microsoft.Hadoop.Avro.csproj'
+    publish_nuget: true
 
   deploy:
     provider: NuGet
