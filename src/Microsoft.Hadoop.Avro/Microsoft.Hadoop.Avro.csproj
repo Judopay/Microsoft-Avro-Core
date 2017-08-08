@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Version>1.1.1</Version>
-    <PackageVersion>1.1.1<PackageVersion>
+    <PackageVersion>1.1.1</PackageVersion>
     <Authors>Microsoft;welly87</Authors>
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>Microsoft.Hadoop.Avro-Core</AssemblyName>
