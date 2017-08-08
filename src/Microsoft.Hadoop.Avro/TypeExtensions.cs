@@ -1,15 +1,15 @@
 ﻿// Copyright (c) Microsoft Corporation
 // All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
 // use this file except in compliance with the License.  You may obtain a copy
 // of the License at http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 // KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
 // WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
 // MERCHANTABLITY OR NON-INFRINGEMENT.
-// 
+//
 // See the Apache Version 2.0 License for specific language governing
 // permissions and limitations under the License.
 namespace Microsoft.Hadoop.Avro
@@ -35,7 +35,7 @@ namespace Microsoft.Hadoop.Avro
         public static bool HasParameterlessConstructor(this Type type)
         {
             //return type.GetTypeInfo().GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) != null;
-            return type.GetTypeInfo().GetConstructor(Type.EmptyTypes) != null;
+            return type.GetConstructor(Type.EmptyTypes) != null;
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Microsoft.Hadoop.Avro
                 || type.IsArray
                 || type.IsKeyValuePair()
                 || type.GetAllInterfaces()
-                       .FirstOrDefault(t => t.IsGenericType() && 
+                       .FirstOrDefault(t => t.IsGenericType() &&
                                             t.GetGenericTypeDefinition() == typeof(IEnumerable<>)) != null;
         }
 
@@ -151,7 +151,7 @@ namespace Microsoft.Hadoop.Avro
                 return Enumerable.Empty<FieldInfo>();
             }
 
-            const BindingFlags Flags = 
+            const BindingFlags Flags =
                 BindingFlags.Public |
                 BindingFlags.NonPublic |
                 BindingFlags.Instance |
@@ -234,7 +234,7 @@ namespace Microsoft.Hadoop.Avro
             var underlyingType = Nullable.GetUnderlyingType(type);
             return !type.IsValueType() || underlyingType != null;
         }
-        
+
         public static bool IsKeyValuePair(this Type type)
         {
             return type.IsGenericType() && type.GetGenericTypeDefinition() == typeof(KeyValuePair<,>);
@@ -243,8 +243,8 @@ namespace Microsoft.Hadoop.Avro
         public static bool CanBeKnownTypeOf(this Type type, Type baseType)
         {
             return !type.IsAbstract()
-                   && (type.GetTypeInfo().IsSubclassOf(baseType) 
-                   || type == baseType 
+                   && (type.GetTypeInfo().IsSubclassOf(baseType)
+                   || type == baseType
                    || (baseType.IsInterface() && baseType.IsAssignableFrom(type))
                    || (baseType.IsGenericType() && baseType.IsInterface() && baseType.GenericIsAssignable(baseType)
                            && type.GetGenericArguments()
@@ -357,7 +357,7 @@ namespace Microsoft.Hadoop.Avro
         {
             return type.GetTypeInfo().IsAbstract;
         }
-        
+
         public static bool ContainsGenericParameters(this Type type)
         {
             return type.GetTypeInfo().ContainsGenericParameters;
